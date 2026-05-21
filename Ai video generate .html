@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Video Generator</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      min-height:100vh;
+    }
+
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+
+    .nav-btn{
+      padding:10px 18px;
+      border:none;
+      border-radius:10px;
+      background:#38bdf8;
+      color:black;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .hero{
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    .hero h1{
+      font-size:55px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      color:#cbd5e1;
+      margin-bottom:40px;
+      font-size:18px;
+    }
+
+    .generator-box{
+      max-width:700px;
+      margin:auto;
+      background:#1e293b;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+    }
+
+    textarea{
+      width:100%;
+      height:140px;
+      border:none;
+      outline:none;
+      border-radius:15px;
+      padding:15px;
+      resize:none;
+      font-size:16px;
+      background:#0f172a;
+      color:white;
+      margin-bottom:20px;
+    }
+
+    .generate-btn{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:15px;
+      background:#38bdf8;
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .generate-btn:hover{
+      transform:scale(1.02);
+    }
+
+    .video-preview{
+      margin-top:30px;
+      background:#0f172a;
+      border-radius:15px;
+      padding:20px;
+      text-align:center;
+    }
+
+    .video-preview video{
+      width:100%;
+      border-radius:15px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+      padding:60px 40px;
+    }
+
+    .feature-card{
+      background:#1e293b;
+      padding:25px;
+      border-radius:18px;
+    }
+
+    .feature-card h3{
+      margin-bottom:10px;
+      color:#38bdf8;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="logo">AI VIDEO</div>
+    <button class="nav-btn">Login</button>
+  </div>
+
+  <section class="hero">
+    <h1>Create AI Videos Instantly</h1>
+    <p>Turn your ideas into amazing AI videos with one prompt.</p>
+
+    <div class="generator-box">
+      <textarea id="prompt"
+        placeholder="Describe your video..."></textarea>
+
+      <button class="generate-btn" onclick="generateVideo()">
+        Generate Video
+      </button>
+
+      <div class="video-preview" id="preview">
+        <p>Your AI video will appear here...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+
+    <div class="feature-card">
+      <h3>AI Script</h3>
+      <p>Automatically generates video script from your prompt.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>AI Voice</h3>
+      <p>Convert text into realistic AI voice instantly.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Fast Rendering</h3>
+      <p>Create videos in seconds with modern AI technology.</p>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 AI Video Generator Website
+  </footer>
+
+  <script>
+    function generateVideo(){
+
+      let prompt = document.getElementById("prompt").value;
+      let preview = document.getElementById("preview");
+
+      if(prompt.trim() === ""){
+        alert("Please enter a prompt");
+        return;
+      }
+
+      preview.innerHTML = `
+        <p style="margin-bottom:15px;">
+          Generating AI Video for:
+        </p>
+
+        <p style="color:#38bdf8; margin-bottom:20px;">
+          "${prompt}"
+        </p>
+
+        <video controls>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+      `;
+    }
+  </script>
+
+</body>
+</html>
